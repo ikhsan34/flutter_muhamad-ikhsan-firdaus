@@ -1,4 +1,7 @@
-# Introduction Mobile App Development
+# (4) Introduction Mobile App Development
+Muhamad Ikhsan F
+
+Flutter - Kelas D
 
 ## Software
 ### Pengertian
