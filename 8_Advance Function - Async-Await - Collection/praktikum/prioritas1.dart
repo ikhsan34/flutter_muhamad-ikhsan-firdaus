@@ -1,3 +1,4 @@
+// Soal Prioritas 1 - fungtion pengali
 void main() async {
 
   List list1 = await pengali([1,2,3,4,5], 10);
