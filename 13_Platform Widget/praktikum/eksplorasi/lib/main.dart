@@ -23,10 +23,50 @@ class _MyAppState extends State<MyApp> {
 
   int _selectedIndex = 0;
 
-  List bodyContent = [
-    'Favorites Page',
-    'Search Page',
-    'Information Page'
+  final _listView = ListView(
+    children: const [
+      Card(
+        child: ListTile(
+          title: Text('Learn Flutter'),
+        ),
+      ),
+      Card(
+        child: ListTile(
+          title: Text('Learn ReactJS'),
+        ),
+      ),
+      Card(
+        child: ListTile(
+          title: Text('Learn VueJS'),
+        ),
+      ),
+      Card(
+        child: ListTile(
+          title: Text('Learn Tailwind CSS'),
+        ),
+      ),
+      Card(
+        child: ListTile(
+          title: Text('Learn UI/UX'),
+        ),
+      ),
+      Card(
+        child: ListTile(
+          title: Text('Learn Figma'),
+        ),
+      ),
+      Card(
+        child: ListTile(
+          title: Text('Learn Digital Marketing'),
+        ),
+      ),
+    ],
+  );
+
+  List<Widget> bodyContent = [
+    const Text('Favorites Page'),
+    const Text('Search Page'),
+    const Text('Information Page'),
   ];
 
   void _onItemTapped(int index) {
@@ -34,6 +74,14 @@ class _MyAppState extends State<MyApp> {
       _selectedIndex = index;
     });
   }
+
+  @override
+  void initState() {
+    super.initState();
+    bodyContent[0] = _listView;
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -48,13 +96,13 @@ class _MyAppState extends State<MyApp> {
             },
             child: const Icon(
               Icons.search,
-              color: Colors.white,
+              color: Colors.grey,
             ),
           )
         ],
       ),
       body: Center(
-        child: Text(bodyContent.elementAt(_selectedIndex)),
+        child: bodyContent.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: const Color(0xFF6200EE),
@@ -88,7 +136,8 @@ class _MyAppState extends State<MyApp> {
           
         },
         child: const Icon(
-          Icons.add
+          Icons.add,
+          color: Colors.black,
         ),
       ),
     );
