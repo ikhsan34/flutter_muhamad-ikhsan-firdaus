@@ -41,6 +41,17 @@ class _MyAppState extends State<MyApp> {
       appBar: AppBar(
         title: const Text('My Flutter App'),
         //backgroundColor: const Color(0xFF6200EE),
+        actions: [
+          TextButton(
+            onPressed: () {
+              //print('test');
+            },
+            child: const Icon(
+              Icons.search,
+              color: Colors.white,
+            ),
+          )
+        ],
       ),
       body: Center(
         child: Text(bodyContent.elementAt(_selectedIndex)),
