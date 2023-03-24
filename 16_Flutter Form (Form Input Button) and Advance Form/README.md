@@ -351,6 +351,9 @@ void _openFile(PlatformFile file) {
 void _pickFile() async {
   final result = await FilePicker.platform.pickFiles();
   if(result == null) return;
+  
+  final file = result.files.first;
+  _openFile(file);
 }
 ```
 
