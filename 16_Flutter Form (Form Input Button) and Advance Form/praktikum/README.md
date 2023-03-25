@@ -81,6 +81,6 @@ App
 1. Form sama seperti sebelumnya
 2. Date picker akan menjadi variabel Date of Birth
 3. Color Picker akan menjadi background Circle Avatar
-4. File picker path file akan ditampilkan pada listtile
+4. File picker path file akan ditampilkan pada listtile, yang ditampilkan hanya nama file bertujuan untuk clean looks
 
 <img src="https://user-images.githubusercontent.com/10411833/227733765-6b4726b9-dc55-48a2-9109-79f8dbf1c22f.png" height="800">
