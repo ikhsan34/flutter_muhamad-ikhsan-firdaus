@@ -1,4 +1,4 @@
-package com.example.prioritas_one
+package com.example.soal_form
 
 import io.flutter.embedding.android.FlutterActivity
 

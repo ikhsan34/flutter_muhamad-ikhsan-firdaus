@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:prioritas_one/Contact.dart';
+import 'package:soal_form/Contact.dart';
 
 void main() {
   runApp(MaterialApp(

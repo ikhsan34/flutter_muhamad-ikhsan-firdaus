@@ -1,6 +1,6 @@
 {
-    "name": "prioritas_one",
-    "short_name": "prioritas_one",
+    "name": "soal_form",
+    "short_name": "soal_form",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.prioritas_one">
+    package="com.example.soal_form">
    <application
-        android:label="prioritas_one"
+        android:label="soal_form"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
