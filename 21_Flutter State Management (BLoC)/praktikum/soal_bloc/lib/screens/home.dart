@@ -66,7 +66,7 @@ class Home extends StatelessWidget {
                               ),
                               IconButton(
                                 onPressed: () {
-                                  // contactProvider.remove(contactProvider.contacts[index]);
+                                  context.read<ContactBloc>().add(DeleteContactByIndex(index));
                                 },
                                 icon: const Icon(Icons.delete),
                               ),

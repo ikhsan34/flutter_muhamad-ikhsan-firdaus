@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:soal_bloc/models/contact_model.dart';
 
 part 'contact_event.dart';
 part 'contact_state.dart';
@@ -11,7 +12,13 @@ class ContactBloc extends Bloc<ContactEvent, ContactState> {
     });
     
     on<CreateContactSubmitted>((event, emit) {
-      emit(state.copyWith(contacts: List.of(state.contacts)..add(Contact(name: event.name, phone: event.phone))));
+      //emit(state.copyWith(contacts: List.of(state.contacts)..add(Contact(name: event.name, phone: event.phone))));
+      emit(state.createContact(Contact(name: event.name, phone: event.phone)));
+    });
+
+    on<DeleteContactByIndex>((event, emit) {
+      //emit(state.copyWith(contacts: List.of(state.contacts)..removeAt(event.index)));
+      emit(state.deleteContact(event.index));
     });
   }
 }
