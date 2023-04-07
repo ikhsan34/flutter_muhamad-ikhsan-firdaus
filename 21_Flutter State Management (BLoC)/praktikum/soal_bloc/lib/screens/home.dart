@@ -52,15 +52,11 @@ class Home extends StatelessWidget {
                             children: [
                               IconButton(
                                 onPressed: () {
-                                  // Navigator.pushNamed(
-                                  //   context,
-                                  //   '/create_contact',
-                                  //   arguments: CreateContactArguments(
-                                  //     contactName: contactProvider.contacts[index].name,
-                                  //     contactPhone: contactProvider.contacts[index].phone.replaceRange(0, 3, '0') // replace +62 with zero
-                                  //   )
-                                  // );
-                                  // contactProvider.remove(contactProvider.contacts[index]);
+                                  Navigator.pushNamed(
+                                    context,
+                                    '/update_contact',
+                                    arguments: index
+                                  );
                                 },
                                 icon: const Icon(Icons.edit),
                               ),
@@ -84,11 +80,7 @@ class Home extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(
-            context,
-            '/create_contact',
-            arguments: CreateContactArguments(contactName: '', contactPhone: '')
-          );
+          Navigator.pushNamed(context, '/create_contact');
         },
         child: const Icon(Icons.add),
       ),

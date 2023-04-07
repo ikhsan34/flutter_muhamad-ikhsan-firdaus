@@ -18,3 +18,11 @@ class DeleteContactByIndex extends ContactEvent {
 
   const DeleteContactByIndex(this.index);
 }
+
+class UpdateContactByIndex extends ContactEvent {
+  final int index;
+  final String name;
+  final String phone;
+
+  const UpdateContactByIndex({required this.index, required this.name, required this.phone});
+}

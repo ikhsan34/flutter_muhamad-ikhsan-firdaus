@@ -10,12 +10,18 @@ class ContactState extends Equatable {
     return ContactState(contacts: contacts ?? this.contacts);
   }
 
-  ContactState createContact(Contact contact) {
-    return copyWith(contacts: List.of(contacts)..add(contact));
+  ContactState createContact({required String name, required String phone}) {
+    Contact newContact = Contact(name: name, phone: phone);
+    return copyWith(contacts: List.of(contacts)..add(newContact));
   }
 
   ContactState deleteContact(int index) {
     return copyWith(contacts: List.of(contacts)..removeAt(index));
+  }
+
+  ContactState updateContact({required int index, required String name, required String phone}) {
+    Contact newContact = Contact(name: name, phone: phone);
+    return copyWith(contacts: List.of(contacts)..replaceRange(index, index + 1, [newContact]));
   }
   
   @override

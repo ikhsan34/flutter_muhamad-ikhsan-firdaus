@@ -2,67 +2,61 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:soal_bloc/bloc/contact_bloc.dart';
+import 'package:soal_bloc/models/contact_model.dart';
 
-class CreateContact extends StatefulWidget {
+class UpdateContact extends StatefulWidget {
 
-  const CreateContact({super.key});
+  final int index;
+
+  const UpdateContact({super.key, required this.index});
 
   @override
-  State<CreateContact> createState() => _CreateContactState();
+  State<UpdateContact> createState() => _UpdateContactState();
 }
 
-class _CreateContactState extends State<CreateContact> {
-  final String _desc = 'A dialog is a type of modal windows that appears in front of app content to provide critical information, or prompt for a decision to be made.';
+class _UpdateContactState extends State<UpdateContact> {
 
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
   final _phoneController = TextEditingController();
 
-  void createContact({required BuildContext context, required String name, required String phone}) {
-    context.read<ContactBloc>().add(CreateContactSubmitted(name, phone));
-    Navigator.pop(context);
+  void getContact(BuildContext context) {
+    final Contact contact = context.read<ContactBloc>().state.contacts[widget.index];
+    setState(() {
+      _nameController.text = contact.name!;
+      _phoneController.text = contact.phone!.replaceRange(0, 3, '0');
+    });
   }
 
   @override
   void dispose() {
+    super.dispose();
     _nameController.dispose();
     _phoneController.dispose();
-    super.dispose();
-  }
-
-  @override
-  void initState() {
-    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    getContact(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Create Contact'),
+        title: const Text('Update Contact'),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Column(
           children: [
-            const Icon(Icons.contact_phone),
+            Icon(Icons.edit_rounded, color: Colors.grey[600]),
             const SizedBox(height: 10,),
             const Text(
-              'Create New Contacts',
+              'Update Contact',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 15
               ),
             ),
             const SizedBox(height: 10,),
-            Text(
-              _desc,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                height: 1.5
-              ),
-            ),
             const Divider(),
 
             Form(
@@ -121,9 +115,12 @@ class _CreateContactState extends State<CreateContact> {
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        createContact(context: context, name: _nameController.text.trim(), phone: _phoneController.text.replaceRange(0, 1, '+62'));
-                        _nameController.clear();
-                        _phoneController.clear();
+                        context.read<ContactBloc>().add(UpdateContactByIndex(
+                          index: widget.index, 
+                          name: _nameController.text.trim(), 
+                          phone: _phoneController.text.replaceRange(0, 1, '+62')
+                        ));
+                        Navigator.pop(context);
                       }
                     },
                     child: const Text('Submit'),

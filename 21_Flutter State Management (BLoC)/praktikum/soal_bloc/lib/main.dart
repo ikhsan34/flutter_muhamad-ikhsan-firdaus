@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:soal_bloc/bloc/contact_bloc.dart';
 import 'package:soal_bloc/screens/create_contact.dart';
 import 'package:soal_bloc/screens/home.dart';
+import 'package:soal_bloc/screens/update_contact.dart';
 
 void main() => runApp(const MyApp());
 
@@ -20,15 +21,16 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         initialRoute: '/',
         routes: {
-          '/': (context) => const Home()
+          '/': (context) => const Home(),
+          '/create_contact':(context) => const CreateContact()
         },
         onGenerateRoute: (settings) {
-        if (settings.name == '/create_contact') {
-          final args = settings.arguments as CreateContactArguments;
+        if (settings.name == '/update_contact') {
+          final args = settings.arguments as int;
 
           return MaterialPageRoute(
             builder: (context) {
-              return CreateContact(contactName: args.contactName, contactPhone: args.contactPhone);
+              return UpdateContact(index: args);
             },
           );
         }
