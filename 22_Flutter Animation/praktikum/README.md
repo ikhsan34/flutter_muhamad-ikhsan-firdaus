@@ -3,12 +3,18 @@
 ## Flutter App - Contact List
 
 ### Soal Prioritas 1
+Tambahkan & Implementasikan penggunaan transisi Animasi perpindahan dari halaman Contact ke halaman Create Contact
+
 ![Soal Prioritas 1](https://user-images.githubusercontent.com/10411833/230734538-8a88bd58-7529-4fd3-8b14-f80a92ee2428.gif)
 
 ### Soal Prioritas 2
+Tambahkan & Implementasikan penggunaan transisi Animasi perpindahan ke halaman sebelumnya yaitu ketika tombol back ditekan. Sebagai contoh, ketika user berada di halaman tambah data kontak dan kembali ke halaman sebelumnya maka terdapat animasi transisi dari halaman tambah data kontak ke halaman sebelumnya.
+
 ![Soal Prioritas 2](https://user-images.githubusercontent.com/10411833/230734541-36121b79-ae1b-4e9a-9a98-7733836929f9.gif)
 
 ### Soal Eksplorasi
+Tambahkan & Implementasikan penggunaan transisi Animasi perpindahan dari halaman Contact ke halaman Update Contact
+
 ![Soal Eksplorasi](https://user-images.githubusercontent.com/10411833/230734544-e149f2ca-9cb0-4023-a958-3ea61159a967.gif)
 
 ### Dynamic Page Transition
