@@ -1,8 +1,8 @@
 # (20) Praktikum Flutter State Management (Provider)
 
 #### Table of Content
-1. [Flutter Provider - Contact](https://github.com/ikhsan34/flutter_muhamad-ikhsan-firdaus/edit/main/20_Flutter%20State%20Management%20(Provider)/praktikum/README.md#flutter-create-contact--state-management-menggunakan-provider)
-2. [Flutter Provider - Gallery](https://github.com/ikhsan34/flutter_muhamad-ikhsan-firdaus/edit/main/20_Flutter%20State%20Management%20(Provider)/praktikum/README.md#flutter-gallery--state-management-menggunakan-provider)
+1. [Flutter Provider - Contact](#flutter-create-contact--state-management-menggunakan-provider)
+2. [Flutter Provider - Gallery](#flutter-gallery--state-management-menggunakan-provider)
 
 
 ## Flutter Create Contact & State Management Menggunakan Provider
