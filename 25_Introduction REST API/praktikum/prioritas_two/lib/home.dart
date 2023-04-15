@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'dart:math';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -10,21 +12,41 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  late Image image;
+  bool isLoading = false;
+  Widget? imageSvg;
+  final List imageStyles = [
+    'adventurer',
+    'adventurer-neutral',
+    'avataaars',
+    'avataaars-neutral',
+    'big-ears',
+    'big-ears-neutral',
+    'big-smile',
+    'bottts'
+  ];
 
   void getImage() async {
+
+    setState(() {
+      isLoading = true;
+    });
+
     final dio = Dio();
+    int randomIndex = Random().nextInt(imageStyles.length);
 
-    final response = await dio.get('https://api.dicebear.com/6.x/pixel-art/svg?seed=John');
+    try {
+      final response = await dio.get('https://api.dicebear.com/6.x/${imageStyles[randomIndex]}/svg?seed=John');
 
-    print(response);
-
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    getImage();
+      if (response.statusCode == 200) {
+        setState(() {
+          isLoading = false;
+          imageSvg = SvgPicture.string(response.data, height: 200);
+        });
+      }
+      
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override
@@ -33,13 +55,20 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: const Text('Image API - DiceBear'),
       ),
-      body: GridView(
-        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 2
-        ),
-        children: const [
-          
-        ],
+      body:  Center(
+        child: isLoading
+        ? const CircularProgressIndicator()
+        : Column(
+          children: [
+            imageSvg != null ? imageSvg! : const Text('Tap On Generate Button'),
+            ElevatedButton(
+              onPressed: () {
+                getImage();
+              },
+              child: const Text('Generate Random Image'),
+            )
+          ],
+        )
       ),
     );
   }
